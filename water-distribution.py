@@ -1,4 +1,6 @@
 def water_trapped(arr):
+    if len(arr)<3:
+        return 0
     water_trapped = 0
     left_max = [None] * len(arr)
     left_max[0] = arr[0]
@@ -18,7 +20,10 @@ def water_trapped(arr):
 arrs = [[0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1],
         [0, 0, 0, 0],
         [1, 3, 5, 7, 9, 11, 13],
-        [20, 18, 16, 12, 8, 6, 4, 2, 1]]
+        [20, 18, 16, 12, 8, 6, 4, 2, 1],
+        [],
+        [1],
+        [1,0]]
 for arr in arrs:
     result = water_trapped(arr)
     print(result)
