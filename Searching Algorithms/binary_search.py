@@ -10,6 +10,7 @@ def binary(a, left, right, x):
     return -1
 
 
+
 arr = [10, 14, 19, 27, 33, 35, 42]
 x = int(input("Enter the value of x:"))
 # print(x)
