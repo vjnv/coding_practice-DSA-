@@ -9,7 +9,7 @@ class linked_list:
         self.head = None
 
 
-def print_reverse(head):
+def print_list(head):
     temp = head
     while temp:
         print(temp.data, end=" ")
@@ -18,7 +18,7 @@ def print_reverse(head):
     return
 
 
-def print_list(head):
+def print_reverse(head):
     stack = []
     temp = head
     while temp:
@@ -32,14 +32,35 @@ def print_list(head):
 
 def insert(head, value):
     new_node = Node(value)
-    new_node.next = head
-    head = new_node
+    if head == None:
+        head = new_node
+        return head
+    temp = head
+    while temp.next:
+        temp = temp.next
+    temp.next = new_node
     return head
+
+
+def middle_element(head):
+    slow = head
+    fast = head
+    while fast.next and fast:
+        fast = fast.next.next
+        if fast == None:
+            break
+        slow = slow.next
+    print(slow.data)
+    return
 
 
 list = linked_list()
 list.head = insert(list.head, 1)
 list.head = insert(list.head, 2)
 list.head = insert(list.head, 3)
+list.head = insert(list.head, 4)
+list.head = insert(list.head, 5)
+list.head = insert(list.head, 6)
 print_list(list.head)
 print_reverse(list.head)
+middle_element(list.head)
