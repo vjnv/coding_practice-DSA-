@@ -22,7 +22,7 @@ def solve_rat_in_maze(maze):
     n = len(maze)
     sol = [[0 for i in range(n)] for j in range(n)]
     if solveUtil(0, 0, n, sol, maze) is False:
-        return "Solution doesn't exists"
+        print("Solution doesn't exists")
     print(sol)
 
 
