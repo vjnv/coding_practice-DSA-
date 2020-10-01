@@ -8,22 +8,22 @@ def balanced_check(exp):
             if stack[-1]=='(':
                 stack.pop()
             else:
-                result="unbalanced"
+                result="unmatched"
                 break
         elif exp[i]=='}':
             if stack[-1]=='{':
                 stack.pop()
             else:
-                result="unbalanced"
+                result="unmatched"
                 break
         elif exp[i]==']':
             if stack[-1]=='[':
                 stack.pop()
             else:
-                result="unbalanced"
+                result="unmatched"
                 break
     if len(stack)!=0:
-        result="unbalanced"
+        result="unmatched"
     return result
 
 exps=["[()]{}{[()()]()}","[(])"]
