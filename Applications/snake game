@@ -1,0 +1,43 @@
+from collections import deque
+
+class Solution(object):
+    def snakesAndLadders(self, arr):
+        """
+        :type board: List[List[int]]
+        :rtype: int
+        """
+        
+        temp = []
+        even = True
+        for i in range(len(arr)-1, -1, -1):
+            if even:
+                temp.extend(arr[i])
+            else:
+                temp.extend(arr[i][::-1])
+            even = not even
+
+
+
+        n = len(temp)
+        target = len(temp)-1
+        stack = deque([(0, 0)])
+        seen = set()
+
+
+        while stack:
+
+            ind, steps = stack.popleft()
+            
+            if ind == target:
+                return steps
+            for move in [1, 2, 3, 4, 5, 6]:
+                n_ind = ind + move
+
+                if n_ind < n and n_ind not in seen:
+                    seen.add(n_ind)
+                    if temp[n_ind] == -1:
+                        stack.append((n_ind, steps+1))
+                    else:
+                        stack.append((temp[n_ind]-1, steps+1))
+        return -1
+        
