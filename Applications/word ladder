@@ -1,0 +1,20 @@
+class Solution:
+    def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
+        level = 1
+        frontier = [beginWord]
+        wl = set(wordList)
+        alpha = "abcdefghijklmnopqrstuvwxyz"
+        while frontier:
+            next = []
+            for cur in frontier:
+                if cur==endWord:
+                    return level
+                for i in range(len(cur)):
+                    for ch in alpha:
+                        next_word = cur[:i]+ch+cur[i+1:]
+                        if next_word in wl:
+                            wl.remove(next_word)
+                            next.append(next_word)
+            frontier = next
+            level+=1
+        return 0
