@@ -1,3 +1,5 @@
+import sys
+import os
 def binary_search(a, left, right, x):
     if right >= left:
         mid = left + (right - left) // 2
@@ -22,7 +24,7 @@ def search(arr, element):
     return binary_search(arr, start, end, element)
 
 
-arrs = [[3, 5, 7, 9, 10, 90, 100, 130, 140, 160, 170, 171, 172, 173, 174, 175, 176]]
+arrs = [[3, 5, 7, 9, 10, 90, 100, 130, 140, 160, 170, 171, 172, 173, 174, 175, 176,188,179,345,123]]
 for arr in arrs:
     element = int(input("Enter the element:"))
     res_index=search(arr, element)
